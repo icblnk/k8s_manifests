@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xen-orchestra
+  labels:
+    app: xen-orchestra
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: xen-orchestra
+  template:
+    metadata:
+      labels:
+        app: xen-orchestra
+    spec:
+      containers:
+        - name: xen-orchestra
+          image: ronivay/xen-orchestra:latest
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: xo-data
+              mountPath: /var/lib/xo-server
+            - name: redis-data
+              mountPath: /var/lib/redis
+      volumes:
+        - name: xo-data
+          persistentVolumeClaim:
+            claimName: pvc-xo-data
+        - name: redis-data
+          persistentVolumeClaim:
+            claimName: pvc-redis-data
