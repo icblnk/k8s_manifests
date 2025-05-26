@@ -11,7 +11,7 @@ spec:
     path: xen-orchestra
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: xen-orchestra
   syncPolicy:
     automated:
       prune: true
