@@ -5,17 +5,20 @@ metadata:
   namespace: argocd
 spec:
   project: default
-  source:
-    repoURL: https://charts.bitnami.com/bitnami
-    chart: postgresql
-    targetRevision: 16.7.5
-    helm:
-      valueFiles:
-        - helm-postgresql-values.yaml
-    path: apps/postgresql
+  sources:
+    - repoURL: https://charts.bitnami.com/bitnami
+      chart: postgresql
+      targetRevision: 16.7.5
+      helm:
+        valueFiles:
+          - $values/immich/apps/postgresql/helm-postgresql-values.yaml
+    - repoURL: https://github.com/icblnk/k8s_manifests
+      targetRevision: HEAD
+      ref: values
+      path: immich
   destination:
     server: https://kubernetes.default.svc
-    namespace: immich
+    namespace: immich-postgresql
   syncPolicy:
     automated:
       prune: true
@@ -30,14 +33,17 @@ metadata:
   namespace: argocd
 spec:
   project: default
-  source:
-    repoURL: https://immich-app.github.io/immich-charts
-    chart: immich
-    targetRevision: 0.9.3
-    helm:
-      valueFiles:
-        - helm-immich-values.yaml
-    path: apps/immich
+  sources:
+    - repoURL: https://immich-app.github.io/immich-charts
+      chart: immich
+      targetRevision: 0.9.3
+      helm:
+        valueFiles:
+          - $values/immich/apps/immich/helm-immich-values.yaml
+    - repoURL: https://github.com/icblnk/k8s_manifests
+      targetRevision: HEAD
+      ref: values
+      path: immich
   destination:
     server: https://kubernetes.default.svc
     namespace: immich

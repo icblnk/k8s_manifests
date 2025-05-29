@@ -35,7 +35,7 @@ immich:
   # configuration is immich-config.json converted to yaml
   # ref: https://immich.app/docs/install/config-file/
   #
-  configuration: {}
+  configuration:
     trash:
       enabled: true
       days: 14
