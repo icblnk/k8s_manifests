@@ -11,6 +11,22 @@ spec:
     server: 192.168.0.4
     path: /volume2/cluster_storage_1
   persistentVolumeReclaimPolicy: Retain
+  storageClassName: nas-nfs
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: immich-nfs-ml-cache-pv
+spec:
+  capacity:
+    storage: 20Gi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: 192.168.0.4
+    path: /volume2/cluster_storage_1
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: nas-nfs
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -24,6 +40,7 @@ spec:
     requests:
       storage: 500Gi
   volumeName: immich-nfs-data-pv
+  storageClassName: nas-nfs
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -35,5 +52,6 @@ spec:
     - ReadWriteMany
   resources:
     requests:
-      storage: 500Gi
-  volumeName: immich-nfs-data-pv
+      storage: 20Gi
+  volumeName: immich-nfs-ml-cache-pv
+  storageClassName: nas-nfs

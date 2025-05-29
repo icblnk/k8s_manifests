@@ -7,6 +7,7 @@ spec:
     storage: 30Gi
   accessModes:
     - ReadWriteOnce
+  storageClassName: nas-iscsi
   persistentVolumeReclaimPolicy: Retain
   iscsi:
     targetPortal: 192.168.0.4:3260
@@ -24,6 +25,7 @@ spec:
     storage: 50Gi
   accessModes:
     - ReadWriteOnce
+  storageClassName: nas-iscsi
   persistentVolumeReclaimPolicy: Retain
   iscsi:
     targetPortal: 192.168.0.4:3260
@@ -41,6 +43,7 @@ spec:
     storage: 100Gi
   accessModes:
     - ReadWriteOnce
+  storageClassName: nas-iscsi
   persistentVolumeReclaimPolicy: Retain
   iscsi:
     targetPortal: 192.168.0.4:3260
@@ -58,6 +61,7 @@ spec:
     storage: 20Gi
   accessModes:
     - ReadWriteOnce
+  storageClassName: nas-iscsi
   persistentVolumeReclaimPolicy: Retain
   iscsi:
     targetPortal: 192.168.0.4:3260
