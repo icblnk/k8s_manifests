@@ -11,11 +11,11 @@ spec:
       targetRevision: 16.7.5
       helm:
         valueFiles:
-          - $values/immich/apps/postgresql/helm-postgresql-values.yaml
+          - $values/helm-postgresql-values.yaml
     - repoURL: https://github.com/icblnk/k8s_manifests
       targetRevision: HEAD
       ref: values
-      path: immich
+      path: immich/apps/postgresql/values/
   destination:
     server: https://kubernetes.default.svc
     namespace: immich-postgresql
@@ -39,11 +39,11 @@ spec:
       targetRevision: 0.9.3
       helm:
         valueFiles:
-          - $values/immich/apps/immich/helm-immich-values.yaml
+          - $values/helm-immich-values.yaml
     - repoURL: https://github.com/icblnk/k8s_manifests
       targetRevision: HEAD
       ref: values
-      path: immich
+      path: immich/apps/immich/values/
   destination:
     server: https://kubernetes.default.svc
     namespace: immich
