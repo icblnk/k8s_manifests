@@ -15,7 +15,7 @@ spec:
     - repoURL: https://github.com/icblnk/k8s_manifests
       targetRevision: HEAD
       ref: values
-      path: immich/apps/postgresql/values/
+      path: immich/apps/postgresql
   destination:
     server: https://kubernetes.default.svc
     namespace: immich-postgresql
@@ -43,7 +43,7 @@ spec:
     - repoURL: https://github.com/icblnk/k8s_manifests
       targetRevision: HEAD
       ref: values
-      path: immich/apps/immich/values/
+      path: immich/apps/immich
   destination:
     server: https://kubernetes.default.svc
     namespace: immich
