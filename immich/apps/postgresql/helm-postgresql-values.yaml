@@ -1,0 +1,9 @@
+auth:
+  existingSecret: immich-postgres-secret
+  username: immich
+  database: immich
+
+primary:
+  persistence:
+    enabled: true
+    existingClaim: postgresql-iscsi-pvc

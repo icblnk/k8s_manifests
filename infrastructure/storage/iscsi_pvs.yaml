@@ -1,0 +1,67 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: iscsi-pv-1
+spec:
+  capacity:
+    storage: 30Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  iscsi:
+    targetPortal: 192.168.0.4:3260
+    iqn: iqn.2011-08.com.asustor:as3104t-8b8c99.target001
+    lun: 0
+    fsType: ext4
+    readOnly: false
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: iscsi-pv-2
+spec:
+  capacity:
+    storage: 50Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  iscsi:
+    targetPortal: 192.168.0.4:3260
+    iqn: iqn.2011-08.com.asustor:as3104t-8b8c99.target001
+    lun: 1
+    fsType: ext4
+    readOnly: false
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: iscsi-pv-3
+spec:
+  capacity:
+    storage: 100Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  iscsi:
+    targetPortal: 192.168.0.4:3260
+    iqn: iqn.2011-08.com.asustor:as3104t-8b8c99.target001
+    lun: 2
+    fsType: ext4
+    readOnly: false
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: iscsi-pv-4
+spec:
+  capacity:
+    storage: 20Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  iscsi:
+    targetPortal: 192.168.0.4:3260
+    iqn: iqn.2011-08.com.asustor:as3104t-8b8c99.target001
+    lun: 3
+    fsType: ext4
+    readOnly: false
