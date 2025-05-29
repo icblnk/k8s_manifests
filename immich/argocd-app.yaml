@@ -18,7 +18,7 @@ spec:
       path: immich
   destination:
     server: https://kubernetes.default.svc
-    namespace: immich-postgresql
+    namespace: immich-postgresql2
   syncPolicy:
     automated:
       prune: true
