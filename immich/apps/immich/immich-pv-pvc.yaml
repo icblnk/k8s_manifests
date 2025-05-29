@@ -16,6 +16,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: immich-nfs-data-pvc
+  namespace: immich
 spec:
   accessModes:
     - ReadWriteMany
