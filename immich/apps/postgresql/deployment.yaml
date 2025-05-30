@@ -32,7 +32,7 @@ spec:
             key: postgres-password
       - name: POSTGRES_INITDB_ARGS
         value: "--data-checksums"
-      - name: POSTGRES_DB:
+      - name: POSTGRES_DB
         value: immich
       volumes:
         - name: postgresql-data
