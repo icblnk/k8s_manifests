@@ -1,7 +1,19 @@
+global:
+  postgresql:
+    auth:
+      existingSecret: immich-postgres-secret
+      secretKeys:
+        adminPasswordKey: postgres-password
+        userPasswordKey: postgresql-password
+
 auth:
-  existingSecret: immich-postgres-secret
+  enablePostgresUser: true
   username: immich
   database: immich
+  existingSecret: immich-postgres-secret
+  secretKeys:
+      adminPasswordKey: postgres-password
+      userPasswordKey: postgresql-password
 
 primary:
   persistence:
