@@ -6,13 +6,13 @@
 
 env:
   REDIS_HOSTNAME: '{{ printf "%s-redis-master" .Release.Name }}'
-  DB_HOSTNAME: "postgresql"
+  DB_HOSTNAME: "postgresql-immich"
   DB_USERNAME:
     valueFrom:
       secretKeyRef:
         name: immich-postgres-secret
         key: postgresql-username
-  DB_DATABASE_NAME: "{{ .Values.postgresql.global.postgresql.auth.database }}"
+  DB_DATABASE_NAME: "immich"
   DB_PASSWORD:
     valueFrom:
       secretKeyRef:

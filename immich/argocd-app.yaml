@@ -1,21 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: postgresql
+  name: postgresql-immich
   namespace: argocd
 spec:
   project: default
-  sources:
-    - repoURL: https://charts.bitnami.com/bitnami
-      chart: postgresql
-      targetRevision: 16.7.5
-      helm:
-        valueFiles:
-          - $values/immich/apps/postgresql/values/helm-postgresql-values.yaml
-    - repoURL: https://github.com/icblnk/k8s_manifests
-      targetRevision: HEAD
-      ref: values
-      path: immich/apps/postgresql
+  source:
+    repoURL: https://github.com/icblnk/k8s_manifests
+    targetRevision: HEAD
+    path: immich/apps/postgresql
   destination:
     server: https://kubernetes.default.svc
     namespace: immich
