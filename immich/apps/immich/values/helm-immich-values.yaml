@@ -6,7 +6,7 @@
 
 env:
   REDIS_HOSTNAME: '{{ printf "%s-redis-master" .Release.Name }}'
-  DB_HOSTNAME: "{{ .Release.Name }}-postgresql"
+  DB_HOSTNAME: "postgresql"
   DB_USERNAME:
     valueFrom:
       secretKeyRef:
