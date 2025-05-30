@@ -9,11 +9,7 @@ env:
   DB_HOSTNAME: "postgresql-immich"
   DB_USERNAME: postgres
   DB_DATABASE_NAME: "immich"
-  DB_PASSWORD:
-    valueFrom:
-      secretKeyRef:
-        name: immich-postgres-secret
-        key: postgres-password
+  DB_PASSWORD: '{{ .Values.postgresql.global.postgresql.auth.password }}'
   IMMICH_MACHINE_LEARNING_URL: '{{ printf "http://%s-machine-learning:3003" .Release.Name }}'
 
 image:
@@ -42,6 +38,12 @@ immich:
 # Dependencies
 postgresql:
   enabled: false
+  global:
+    postgresql:
+      auth:
+        existingSecret: immich-postgres-secret
+        secretKeys:
+          passwordKey: postgres-password
 
 redis:
   enabled: true
