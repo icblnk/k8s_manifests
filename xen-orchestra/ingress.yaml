@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: xen-orchestra-ingress
+  namespace: xen-orchestra
+spec:
+  rules:
+    - host: controller
+      http:
+        paths:
+          - path: /xo
+            pathType: Prefix
+            backend:
+              service:
+                name: xen-orchestra
+                port:
+                  number: 80
