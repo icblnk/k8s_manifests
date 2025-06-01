@@ -5,10 +5,10 @@ metadata:
   namespace: xen-orchestra
 spec:
   rules:
-    - host: controller
+    - host: xo.controller
       http:
         paths:
-          - path: /xo
+          - path: /
             pathType: Prefix
             backend:
               service:
