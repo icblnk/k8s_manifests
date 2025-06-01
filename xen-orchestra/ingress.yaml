@@ -3,12 +3,14 @@ kind: Ingress
 metadata:
   name: xen-orchestra-ingress
   namespace: xen-orchestra
+  annotations:
+      kubernetes.io/ingress.class: "traefik"
 spec:
   rules:
-    - host: xo.controller.local
+    - host: controller.lan
       http:
         paths:
-          - path: /
+          - path: /xo
             pathType: Prefix
             backend:
               service:
