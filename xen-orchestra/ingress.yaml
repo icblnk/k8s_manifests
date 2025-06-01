@@ -5,7 +5,7 @@ metadata:
   namespace: xen-orchestra
 spec:
   rules:
-    - host: xo.controller.local
+    - host: xo.controller.lan
       http:
         paths:
           - path: /
