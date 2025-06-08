@@ -11,3 +11,13 @@ spec:
   postgresql:
     shared_preload_libraries:
       - 'vchord.so'
+  managed:
+    roles:
+    - name: immich
+      ensure: present
+      comment: Immich DB user
+      secret:
+        name: immich-postgres-secret
+      login: true
+      superuser: false
+      inRoles: []

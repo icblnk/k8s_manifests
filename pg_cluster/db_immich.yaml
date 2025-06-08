@@ -5,8 +5,6 @@ metadata:
 spec:
   name: immich
   owner: immich
-  secret:
-    name: immich-postgres-secret
   cluster:
     name: pg-cluster1
   extensions:
