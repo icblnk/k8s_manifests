@@ -8,6 +8,8 @@ spec:
   cluster:
     name: pg-cluster1
   extensions:
+  - name: cube
+    ensure: present
   - name: vector
     ensure: present
   - name: vchord
