@@ -6,10 +6,14 @@
 
 env:
   REDIS_HOSTNAME: '{{ printf "%s-redis-master" .Release.Name }}'
-  DB_HOSTNAME: "postgresql-immich"
-  DB_USERNAME: postgres
-  DB_DATABASE_NAME: "immich"
-  DB_PASSWORD: '{{ .Values.postgresql.global.postgresql.auth.password }}'
+  DB_HOSTNAME: pg-cluster1-rw
+  DB_USERNAME: immich
+  DB_DATABASE_NAME: immich
+  DB_PASSWORD:
+    valueFrom:
+        secretKeyRef:
+          name: immich-postgres-secret
+          key: password
   IMMICH_MACHINE_LEARNING_URL: '{{ printf "http://%s-machine-learning:3003" .Release.Name }}'
 
 image:
@@ -38,12 +42,6 @@ immich:
 # Dependencies
 postgresql:
   enabled: false
-  global:
-    postgresql:
-      auth:
-        existingSecret: immich-postgres-secret
-        secretKeys:
-          passwordKey: postgres-password
 
 redis:
   enabled: true
@@ -61,13 +59,18 @@ server:
     pullPolicy: IfNotPresent
   ingress:
     main:
-      enabled: false
-  service:
-    type: NodePort
-    ports:
-      http:
-        port: 2283
-        nodePort: 30105
+      enabled: true
+      ingressClassName: traefik
+      annotations:
+        cert-manager.io/cluster-issuer: selfsigned-cluster-issuer
+      hosts:
+        - host: immich.controller.lan
+          paths:
+            - path: /
+      tls:
+        - secretName: immich-tls
+          hosts:
+            - immich.controller.lan
 
 machine-learning:
   enabled: true
