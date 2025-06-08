@@ -1,0 +1,19 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Database
+metadata:
+  name: immich
+spec:
+  name: immich
+  owner: immich
+  secret:
+    name: immich-postgres-secret
+  cluster:
+    name: pg-cluster1
+  extensions:
+  - name: vector
+    ensure: present
+  - name: vchord
+    ensure: present
+    version: 0.3.0
+  - name: earthdistance
+    ensure: present
