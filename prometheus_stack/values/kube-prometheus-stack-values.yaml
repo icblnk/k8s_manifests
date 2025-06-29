@@ -1,0 +1,49 @@
+prometheus:
+  prometheusSpec:
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          selector:
+            matchLabels:
+              app: "prometheus-stack"
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 20Gi
+  ingress:
+    enabled: true
+    ingressClassName: traefik
+    hosts:
+      - prometheus.controller.lan
+    annotations:
+      cert-manager.io/cluster-issuer: selfsigned-cluster-issuer
+    tls:
+      - secretName: prometheus-tls
+        hosts:
+          - prometheus.controller.lan
+
+alertmanager:
+  ingress:
+    enabled: true
+    ingressClassName: traefik
+    hosts:
+      - alertmanager.controller.lan
+    annotations:
+      cert-manager.io/cluster-issuer: selfsigned-cluster-issuer
+    tls:
+      - secretName: alertmanager-tls
+        hosts:
+          - alertmanager.controller.lan
+
+grafana:
+  ingress:
+    enabled: true
+    ingressClassName: traefik
+    hosts:
+      - grafana.controller.lan
+    annotations:
+      cert-manager.io/cluster-issuer: selfsigned-cluster-issuer
+    tls:
+      - secretName: grafana-tls
+        hosts:
+          - grafana.controller.lan
