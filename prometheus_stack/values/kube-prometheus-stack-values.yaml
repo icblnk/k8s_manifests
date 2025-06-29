@@ -3,10 +3,11 @@ prometheus:
     storageSpec:
       volumeClaimTemplate:
         spec:
+          storageClassName: "nas-nfs"
           selector:
             matchLabels:
               app: "prometheus-stack"
-          accessModes: ["ReadWriteOnce"]
+          accessModes: ["ReadWriteMany"]
           resources:
             requests:
               storage: 20Gi
