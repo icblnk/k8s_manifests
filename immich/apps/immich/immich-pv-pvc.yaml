@@ -9,7 +9,7 @@ spec:
     - ReadWriteMany
   nfs:
     server: 192.168.0.4
-    path: /volume2/cluster_storage_1
+    path: /volume2/immich_media
   persistentVolumeReclaimPolicy: Retain
   storageClassName: nas-nfs
 ---
@@ -24,7 +24,7 @@ spec:
     - ReadWriteMany
   nfs:
     server: 192.168.0.4
-    path: /volume2/cluster_storage_1
+    path: /volume2/immich_media
   persistentVolumeReclaimPolicy: Retain
   storageClassName: nas-nfs
 ---
