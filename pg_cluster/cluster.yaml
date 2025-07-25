@@ -6,7 +6,7 @@ spec:
   instances: 1
   imageName: ghcr.io/tensorchord/cloudnative-vectorchord:17.5-0.3.0
   storage:
-    storageClass: local-path
+    storageClass: nfs-client
     size: 20Gi
   postgresql:
     shared_preload_libraries:
