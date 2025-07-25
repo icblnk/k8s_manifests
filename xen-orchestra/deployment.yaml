@@ -9,6 +9,8 @@ spec:
   selector:
     matchLabels:
       app: xen-orchestra
+  nodeSelector:
+      kubernetes.io/arch: amd64
   template:
     metadata:
       labels:
