@@ -1,0 +1,30 @@
+# Ingress settings
+ingress:
+  # Enable ingress for home assistant
+  enabled: true
+  className: "traefik"
+  annotations:
+    cert-manager.io/cluster-issuer: selfsigned-cluster-issuer
+  hosts:
+    - host: home-assistant.lan
+      paths:
+        - path: /
+  tls:
+    - secretName: home-assistant-tls
+      hosts:
+        - home-assistant.lan
+
+nodeSelector:
+  zigbee: "true"
+
+persistence:
+  enabled: true
+  size: 30Gi
+  storageClass: "nfs-client"
+
+additionalVolumes: []
+  - hostPath:
+      path: >-
+        /dev/serial/by-id/usb-Itead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_V2_54f1954c8a39ef11960a5ef454516304-if00-port0
+      type: CharDevice
+    name: usb
