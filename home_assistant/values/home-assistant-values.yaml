@@ -22,7 +22,7 @@ persistence:
   size: 30Gi
   storageClass: "nfs-client"
 
-additionalVolumes: []
+additionalVolumes:
   - hostPath:
       path: >-
         /dev/serial/by-id/usb-Itead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_V2_54f1954c8a39ef11960a5ef454516304-if00-port0
