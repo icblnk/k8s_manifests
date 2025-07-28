@@ -9,6 +9,7 @@ ingress:
     - host: home-assistant.lan
       paths:
         - path: /
+          pathType: Prefix
   tls:
     - secretName: home-assistant-tls
       hosts:
