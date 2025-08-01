@@ -15,6 +15,9 @@ ingress:
       hosts:
         - home-assistant.lan
 
+securityContext:
+  privileged: true
+
 configuration:
   enabled: true
   trusted_proxies:
