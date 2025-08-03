@@ -1,0 +1,36 @@
+image:
+  tag: 2.0.22
+
+persistence:
+  enabled: true
+  storageClass: "nfs-client"
+  mountPath: /mosquitto
+  size: 5Gi
+
+authentication:
+  passwordFilePath: "/mosquitto/config/passwordfile"
+
+authorization:
+  aclfilePath: "/mosquitto/config/aclfile"
+
+ports:
+  mqtt:
+    port: 1883
+    protocol: TCP
+  websocket:
+    port: 9090
+    protocol: TCP
+
+config: |
+  allow_anonymous false
+  listener 1883
+  listener 9090
+  protocol websockets
+  persistence true
+  password_file /mosquitto/config/passwordfile
+  persistence_file mosquitto.db
+  persistence_location /mosquitto/data/
+
+monitoring:
+  podMonitor:
+    enabled: false

@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mosquitto
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://storage.googleapis.com/t3n-helm-charts
+      chart: mosquitto
+      targetRevision: 2.4.1
+      helm:
+        valueFiles:
+          - $values/home_assistant/values/mosquitto-values.yaml
+    - repoURL: https://github.com/icblnk/k8s_manifests
+      targetRevision: HEAD
+      ref: values
+      path: mosquitto/values
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: mosquitto
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
