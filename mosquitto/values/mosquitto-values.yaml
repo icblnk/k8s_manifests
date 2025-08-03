@@ -31,6 +31,16 @@ config: |
   persistence_file mosquitto.db
   persistence_location /mosquitto/data/
 
+extraVolumes:
+  - name: passwordfile
+    secret:
+      secretName: mosquitto-passwordfile
+
+extraVolumeMounts:
+  - name: passwordfile
+    mountPath: /mosquitto/config
+    subPath: passwordfile
+
 monitoring:
   podMonitor:
     enabled: false
