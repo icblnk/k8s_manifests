@@ -13,6 +13,9 @@ authentication:
 authorization:
   aclfilePath: "/mosquitto/config/aclfile"
 
+service:
+  type: ClusterIP
+
 ports:
   mqtt:
     port: 1883
