@@ -38,7 +38,7 @@ extraVolumes:
 
 extraVolumeMounts:
   - name: passwordfile
-    mountPath: /mosquitto/config
+    mountPath: /mosquitto/config/passwordfile
     subPath: passwordfile
 
 monitoring:
