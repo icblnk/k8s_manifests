@@ -15,6 +15,7 @@ authorization:
 
 service:
   type: ClusterIP
+  externalTrafficPolicy: ""
 
 ports:
   mqtt:
