@@ -15,30 +15,13 @@ ingress:
       hosts:
         - home-assistant.lan
 
-securityContext:
-  privileged: true
-
 configuration:
   enabled: true
   trusted_proxies:
     - 192.168.0.0/16
     - 10.42.0.0/16
 
-nodeSelector:
-  zigbee: "true"
-
 persistence:
   enabled: true
   size: 30Gi
   storageClass: "nfs-client"
-
-additionalVolumes:
-  - hostPath:
-      path: >-
-        /dev/serial/by-id/usb-Itead_Sonoff_Zigbee_3.0_USB_Dongle_Plus_V2_54f1954c8a39ef11960a5ef454516304-if00-port0
-      type: CharDevice
-    name: usb
-
-additionalMounts:
-  - mountPath: /dev/ttyUSB0
-    name: usb
