@@ -25,7 +25,7 @@ zigbee2mqtt:
     status_topic: "hass/status"
     legacy_entity_attributes: true
     legacy_triggers: false
-  timezone: Europe/Stockholm
+  timezone: "Europe/Stockholm"
   mqtt:
     # -- Required: MQTT server URL (use mqtts:// for SSL/TLS connection)
     server: "mqtt://mosquitto.mosquitto.svc:1883"
@@ -166,12 +166,3 @@ ingress:
 
 # -- Extra Resources. Define some extra resources to be created, such as ExternalResource or Secrets, etc.
 extraResources: []
-  # - apiVersion: v1
-  #   kind: Secret
-  #   metadata:
-  #     name: example-secret
-  #     labels: {}
-  #   type: Opaque
-  #   stringData:
-  #     username: admin
-  #     password: mypassword
