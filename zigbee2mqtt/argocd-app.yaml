@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: zigbee2mqtt
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://charts.zigbee2mqtt.io
+      chart: zigbee2mqtt
+      targetRevision: 2.6.0
+      helm:
+        valueFiles:
+          - $values/zigbee2mqtt/values/zigbee2mqtt-values.yaml
+    - repoURL: https://github.com/icblnk/k8s_manifests
+      targetRevision: HEAD
+      ref: values
+      path: zigbee2mqtt/values
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: zigbee2mqtt
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
