@@ -1,3 +1,7 @@
+service:
+  # -- type of Service to be created
+  type: ClusterIP
+
 statefulset:
   # -- annotations for the statefulset created
   annotations: {}
