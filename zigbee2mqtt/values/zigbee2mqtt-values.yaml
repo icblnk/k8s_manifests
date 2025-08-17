@@ -62,6 +62,7 @@ zigbee2mqtt:
     baudrate: 115200
     # -- Optional: RTS / CTS Hardware Flow Control for serial port (default: false)
     rtscts: false
+    adapter: ember
   # -- Optional: OTA update settings
   # See https://www.zigbee2mqtt.io/guide/usage/ota_updates.html for more info
   ota:
