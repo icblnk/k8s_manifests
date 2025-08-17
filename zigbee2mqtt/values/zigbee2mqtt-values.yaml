@@ -34,9 +34,9 @@ zigbee2mqtt:
     # -- Required: MQTT server URL (use mqtts:// for SSL/TLS connection)
     server: "mqtt://mosquitto.mosquitto.svc:1883"
     # -- Optional: MQTT server authentication user (default: nothing)
-    user: '!include secret.yaml username'
+    user: '!secret.yaml username'
     # -- Optional: MQTT server authentication password (default: nothing)
-    password: '!include secret.yaml password'
+    password: '!secret.yaml password'
     # -- Optional: MQTT client ID (default: nothing)
     # client_id: 'MY_CLIENT_ID'
     # -- Optional: disable self-signed SSL certificates (default: true)
