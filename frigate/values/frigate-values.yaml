@@ -249,7 +249,8 @@ podSecurityContext: {}
   # privileged: true
 
 # -- Node Selector configuration
-nodeSelector: {}
+nodeSelector:
+  ai_acceleration: "true"
 
 # -- Node toleration configuration
 tolerations: []
