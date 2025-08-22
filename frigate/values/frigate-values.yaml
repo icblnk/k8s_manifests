@@ -143,6 +143,7 @@ ingress:
       paths:
         - path: /
           pathType: ImplementationSpecific
+          portName: https
 
   # -- list of TLS configurations
   tls:
