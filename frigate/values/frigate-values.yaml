@@ -21,8 +21,8 @@ env: {}
   # TZ: UTC
 
 # -- set environment variables from Secret(s)
-envFromSecrets: []
-  - frigate-mqtt-creds
+envFromSecrets:
+  - frigate-creds
 
 gpu:
   nvidia:
