@@ -54,6 +54,20 @@ fullnameOverride: ""
 
 # -- frigate configuration - see [Docs](https://docs.frigate.video/configuration/index) for more info
 config: |
+  record:
+    enabled: True
+    retain:
+      days: 3
+      mode: motion
+    alerts:
+      retain:
+        days: 30
+        mode: motion
+    detections:
+      retain:
+        days: 30
+        mode: motion
+
   mqtt:
     host: mosquitto.mosquitto.svc
     port: 1883
