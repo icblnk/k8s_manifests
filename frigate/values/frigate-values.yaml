@@ -95,6 +95,12 @@ config: |
             roles:
               - record
 
+      motion:
+        mask: 0.343,0.008,0.345,0.061,0.642,0.051,0.645,0.007
+        threshold: 30
+        contour_area: 10
+        improve_contrast: true
+
 # Probes configuration
 probes:
   liveness:
