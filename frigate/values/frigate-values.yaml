@@ -9,7 +9,8 @@ image:
   # -- Docker registry/repository to pull the image from
   repository: ghcr.io/blakeblackshear/frigate
   # -- Overrides the default tag (appVersion) used in Chart.yaml ([Docker Hub](https://hub.docker.com/r/blakeblackshear/frigate/tags?page=1))
-  tag: stable-tensorrt
+  #tag: stable-tensorrt
+  tag: stable
   # -- Docker image pull policy
   pullPolicy: IfNotPresent
 
@@ -24,13 +25,13 @@ env: {}
 envFromSecrets:
   - frigate-creds
 
-gpu:
-  nvidia:
-    # -- Enables NVIDIA GPU compatibility. Must also use the "amd64nvidia" tagged image
-    enabled: true
-
-    # -- Overrides the default runtimeClassName
-    runtimeClassName:
+#gpu:
+#  nvidia:
+#    # -- Enables NVIDIA GPU compatibility. Must also use the "amd64nvidia" tagged image
+#    enabled: true
+#
+#    # -- Overrides the default runtimeClassName
+#    runtimeClassName:
 
 # -- declare extra volumes to use for Frigate
 extraVolumes: []
@@ -65,9 +66,9 @@ config: |
     # Optional: interval in seconds for publishing stats (default: shown below)
     stats_interval: 60
 
-  detectors:
-    onnx_0:
-      type: onnx
+  #detectors:
+  #  onnx_0:
+  #    type: onnx
 
   cameras:
     front_door:
