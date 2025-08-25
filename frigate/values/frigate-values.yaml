@@ -73,7 +73,7 @@ config: |
     port: 1883
     topic_prefix: frigate
     client_id: frigate
-    user: '{FRIGATE_MQTT_PASSWORD}'
+    user: '{FRIGATE_MQTT_USERNAME}'
     # NOTE: Environment variables that begin with 'FRIGATE_' may be referenced in {}.
     #       eg. password: '{FRIGATE_MQTT_PASSWORD}'
     password: '{FRIGATE_MQTT_PASSWORD}'
