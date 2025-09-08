@@ -6,7 +6,7 @@ spec:
   name: immich
   owner: immich
   cluster:
-    name: pg-cluster1
+    name: cnpg-cluster-vc
   extensions:
   - name: cube
     ensure: present
