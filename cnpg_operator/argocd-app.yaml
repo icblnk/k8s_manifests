@@ -8,7 +8,7 @@ spec:
   sources:
     - repoURL: https://cloudnative-pg.github.io/charts
       chart: cnpg
-      targetRevision: 0.26.0
+      targetRevision: 1.27.0
       helm:
         valueFiles:
           - $values/cnpg_operator/values/cnpg_operator-values.yaml
