@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cnpg_operator
+  namespace: argocd
+spec:
+  project: default
+  sources:
+    - repoURL: https://cloudnative-pg.github.io/charts
+      chart: cnpg
+      targetRevision: 0.26.0
+      helm:
+        valueFiles:
+          - $values/cnpg_operator/values/cnpg_operator-values.yaml
+    - repoURL: https://github.com/icblnk/k8s_manifests
+      targetRevision: HEAD
+      ref: values
+      path: cnpg_operator/values
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: cnpg_operator
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
