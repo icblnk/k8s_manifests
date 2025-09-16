@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cnpg_operator
+  name: cnpg-operator
   namespace: argocd
 spec:
   project: default
@@ -18,7 +18,7 @@ spec:
       path: cnpg_operator/values
   destination:
     server: https://kubernetes.default.svc
-    namespace: cnpg_operator
+    namespace: cnpg-operator
   syncPolicy:
     automated:
       prune: true
