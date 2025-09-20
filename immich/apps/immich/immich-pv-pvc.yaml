@@ -11,7 +11,6 @@ spec:
     server: 192.168.0.4
     path: /volume2/immich_media
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: nas-nfs
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -26,7 +25,6 @@ spec:
     server: 192.168.0.4
     path: /volume2/immich_media
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: nas-nfs
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -40,7 +38,6 @@ spec:
     requests:
       storage: 500Gi
   volumeName: immich-nfs-data-pv
-  storageClassName: nas-nfs
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -54,4 +51,3 @@ spec:
     requests:
       storage: 20Gi
   volumeName: immich-nfs-ml-cache-pv
-  storageClassName: nas-nfs
