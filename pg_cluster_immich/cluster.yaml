@@ -17,7 +17,7 @@ spec:
     - name: immich
       ensure: present
       comment: Immich DB user
-      secret:
+      passwordSecret:
         name: immich-postgres-secret
       login: true
       superuser: false
