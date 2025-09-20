@@ -1,15 +1,14 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
-  name: pg-cluster
+  name: pg-cluster-immich
+  namespace: pg-cluster-immich
 spec:
-  instances: 1
+  instances: 3
   imageName: ghcr.io/tensorchord/cloudnative-vectorchord:17.5-0.3.0
-  superuserSecret:
-    name: superuser-secret
   storage:
     storageClass: nfs-client
-    size: 50Gi
+    size: 30Gi
   postgresql:
     shared_preload_libraries:
       - 'vchord.so'
@@ -18,8 +17,6 @@ spec:
     - name: immich
       ensure: present
       comment: Immich DB user
-      secret:
-        name: immich-postgres-secret
       login: true
       superuser: false
       inRoles: []

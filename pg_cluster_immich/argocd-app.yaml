@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: pg-cluster
+  name: pg-cluster-immich
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/icblnk/k8s_manifests
     targetRevision: HEAD
-    path: pg_cluster
+    path: pg_cluster_immich
   destination:
-    namespace: pg-cluster
+    namespace: pg-cluster-immich
     server: https://kubernetes.default.svc
   syncPolicy:
     automated:
