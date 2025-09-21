@@ -69,10 +69,9 @@ server:
         cert-manager.io/cluster-issuer: selfsigned-cluster-issuer
         traefik.ingress.kubernetes.io/router.entrypoints: websecure
         traefik.ingress.kubernetes.io/router.tls: "true"
-        traefik.ingress.kubernetes.io/proxy-body-size: 0
         traefik.ingress.kubernetes.io/proxy-buffering: "off"
-        traefik.ingress.kubernetes.io/proxy-read-timeout: "3600s"
-        traefik.ingress.kubernetes.io/proxy-send-timeout: "3600s"
+        traefik.ingress.kubernetes.io/proxy-read-timeout: "600s"
+        traefik.ingress.kubernetes.io/proxy-send-timeout: "600s"
       hosts:
         - host: immich.lan
           paths:
