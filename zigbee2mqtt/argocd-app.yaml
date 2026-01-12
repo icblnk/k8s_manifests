@@ -8,7 +8,7 @@ spec:
   sources:
     - repoURL: https://charts.zigbee2mqtt.io
       chart: zigbee2mqtt
-      targetRevision: 2.6.0
+      targetRevision: 2.7.2
       helm:
         valueFiles:
           - $values/zigbee2mqtt/values/zigbee2mqtt-values.yaml
