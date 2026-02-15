@@ -107,6 +107,7 @@ machine-learning:
   persistence:
     cache:
       enabled: true
+      type: persistentVolumeClaim
       existingClaim: immich-nfs-ml-cache-pvc
       subPath: immich-ml-cache
       mountPath: /cache
