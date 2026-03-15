@@ -25,5 +25,3 @@ persistence:
   enabled: true
   size: 30Gi
   storageClass: "nfs-client"
-
-hostNetwork: true
