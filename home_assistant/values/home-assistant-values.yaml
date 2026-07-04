@@ -5,7 +5,7 @@ image:
   # Image pull policy
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "2026.5.1"
+  tag: "2026.7.1"
 # Ingress settings
 ingress:
   # Enable ingress for home assistant
